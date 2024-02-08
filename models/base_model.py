@@ -55,16 +55,3 @@ class BaseModel:
         obj_dict["created_at"] = obj_dict["created_at"].isoformat()
         obj_dict["updated_at"] = obj_dict["updated_at"].isoformat()
         return obj_dict
-
-    
-    
-
-
-
-                
-                    
-
-                    
-
-        
-
