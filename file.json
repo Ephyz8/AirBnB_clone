@@ -1,1 +1,1 @@
-{"<class 'str'>.fa78ef23-16ae-4bc1-a930-d9f58f4a7ead": {"id": "fa78ef23-16ae-4bc1-a930-d9f58f4a7ead", "created_at": "2024-02-11T07:23:27.089030", "updated_at": "2024-02-11T07:23:27.089093", "name": "My First Model", "my_number": 89, "__class__": "BaseModel"}}
+{"<class 'str'>.c522238d-ac33-4473-b065-c158cdf29ee4": {"id": "c522238d-ac33-4473-b065-c158cdf29ee4", "created_at": "2024-02-11T07:42:49.067307", "updated_at": "2024-02-11T07:42:49.067350", "name": "My_First_Model", "my_number": 89, "__class__": "BaseModel"}}
