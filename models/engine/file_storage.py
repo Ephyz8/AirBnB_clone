@@ -44,10 +44,10 @@ class FileStorage:
         if not os.path.isfile(FileStorage.__file_path):
             return
         with open(FileStorage.__file_path, "r", encoding="utf-8") as files:
-            new_dict = json.load(f)
+            new_dict = json.load(files)
             new_dict = {ky: self.classes()[vl["__class__"]]
                         (**vl) for ky, vl in new_dict.items()}
-            FileStorage.__objects = new_dict
+            FileStorage.__objects[ky] = new_dict
 
     def attributes(self):
         """Returns the attrs. and their types for classname."""
