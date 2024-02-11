@@ -38,6 +38,7 @@ class FileStorage:
         from models.review import Review
         from models.place import Place
         from models.user import User
+        return FileStorage.__objects
 
     def reload(self):
         """Module to reload the stored objects."""

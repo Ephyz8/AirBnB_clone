@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exitst **")
             else:
                 lst = [str(obj) for key, obj in storage.all().items()
-                       if type(obj).__name__ == strng[0]]
+                       if type(obj.__class__.__name__) == strng[0]]
                 print(lst)
         else:
             n_lst = [str(obj) for key, obj in storage.all().items()]
