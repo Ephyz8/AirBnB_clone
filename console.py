@@ -187,7 +187,7 @@ class HBNBCommand(cmd.Cmd):
             match = [
                 ky for ky in storage.all() if ky.startswith(
                     strng[0] + '.')]
-            print(match)
+            print(len(match))
 
     def update_dictionary(self, classname, uid, y_dict):
         """Method  to update an instance based on his ID with a dictionary
