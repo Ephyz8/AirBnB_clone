@@ -49,7 +49,7 @@ class FileStorage:
                     new_dict = json.load(files)
                     new_dict = {ky: self.classes()[vl["__class__"]]
                                 (**vl) for ky, vl in new_dict.items()}
-                    FileStorage.__objects[ky] = new_dict
+                    FileStorage.__objects = new_dict
                 except Exception:
                     pass
 
