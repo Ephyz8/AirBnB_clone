@@ -7,14 +7,13 @@ import os
 
 
 class FileStorage:
-   """Class to handle serialization and deserialisation of 
+    """Class to handle serialization and deserialisation of 
    instances to and fro JSON file.
    """ 
-
-   __file_path = "file.json"
-   __objects = {}
-
-   def all(self):
+    __file_path = "file.json"
+    __objects = {}
+    
+    def all(self):
        """Returns the dictionary __objects"""
        return FileStorage.__objects
     
