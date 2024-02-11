@@ -12,7 +12,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialize instance attributes.
-        
+
         Args:
         *args: list or arguments.
         **kwargs: dictionary of key-value args.
@@ -28,7 +28,7 @@ class BaseModel:
                     (kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
                 else:
                     self.__dict__[key] = kwargs[key]
-        
+
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
@@ -40,7 +40,7 @@ class BaseModel:
 
         return "[{}] ({}) {}".\
             format(type(self).__name__, self.id, self.__dict__)
-    
+
     def save(self):
         """Update the public instance attribute updated_at"""
 
