@@ -37,13 +37,13 @@ class HBNBCommand(cmd.Cmd):
         if method == "update" and attr_or_dict:
             match_dict = re.search('^({.*})$', attr_or_dict)
             if match_dict:
-                self.update_dict(classname, uid, match_dict.group(1))
+                self.update_dictionary(classname, uid, match_dict.group(1))
                 return ""
             match_attr_and_val = re.search(
                 '^(?:"([^"]*)")?(?:, (.*))?$', attr_or_dict)
             if match_attr_and_val:
-                attr_and_val = (match_attr_and_val.group(
-                    1) or "") + " " + (match_attr_and_val.group(2) or "")
+                attr_and_val = (match_attr_and_val.group(1) or "") 
+                + " " + (match_attr_and_val.group(2) or "")
         comm = method + " " + classname + " " + uid + " " + attr_and_val
         self.onecmd(comm)
         return comm
@@ -79,27 +79,28 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         """Prints the string representation of an instance
         based on the class name and id.
-        """
-        strng = arg.split(' ')
-        if strng == "" or strng is None:
+        """ 
+        if arg == "" or arg is None:
             print("** class name missing **")
-        elif strng[0] not in storage.classes():
-            print("** class doesn't exist **")
-        elif len(strng) < 2:
-            key = strng[0] + "." + strng[1]
-            if key not in storage.all():
-                print("** no instance found **")
-            else:
-                print(storage.all()[key])
         else:
-            print("** instance id missing **")
+            strng = arg.split(' ')
+            if strng[0] not in storage.classes():
+                print("** class doesn't exist **")
+            elif len(strng) < 2:
+                print("** instance id missing **")
+            else:
+                key = "{}.{}".format(strng[0], strng[1])
+                if key not in storage.all():
+                    print("** no instance found **")
+                else:
+                    print(storage.all()[key])
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id
         (save the change into the JSON file).
         """
         strng = arg.split(' ')
-        if strng == "" or strng is None:
+        if arg == "" or arg is None:
             print("** class name missing **")
         elif strng[0] not in storage.classes():
             print("** class doesn't exist **")
@@ -119,10 +120,10 @@ class HBNBCommand(cmd.Cmd):
         if arg != "":
             strng = arg.split(' ')
             if strng[0] not in storage.classes():
-                print("** class doesn't exitst **")
+                print("** class doesn't exist **")
             else:
                 lst = [str(obj) for key, obj in storage.all().items()
-                       if type(obj.__class__.__name__) == strng[0]]
+                       if type(obj).__name__ == strng[0]]
                 print(lst)
         else:
             n_lst = [str(obj) for key, obj in storage.all().items()]
@@ -134,7 +135,6 @@ class HBNBCommand(cmd.Cmd):
         if arg == "" or arg is None:
             print("** class name missing **")
             return
-
         rex = r'^(\S+)(?:\s(\S+)(?:\s(\S+)(?:\s((?:"[^"]*")|(?:(\S)+)))?)?)?'
         match = re.search(rex, arg)
         classname = match.group(1)
@@ -189,10 +189,10 @@ class HBNBCommand(cmd.Cmd):
                     strng[0] + '.')]
             print(len(match))
 
-    def update_dictionary(self, classname, uid, y_dict):
+    def update_dictionary(self, classname, uid, match_dict):
         """Method  to update an instance based on his ID with a dictionary
         """
-        y = y_dict.replace("'", '"')
+        y = match_dict.replace("'", '"')
         t = json.loads(y)
         if not classname:
             print("** class name missing **")
