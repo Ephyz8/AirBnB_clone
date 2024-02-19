@@ -1,9 +1,18 @@
 header {
-    background-color: white;
+    background-color: #fff;
     height: 70px;
     width: 100%;
-    border-bottom: 1px solid #CCCCCC;
-    background-image: url(../images/logo.png);
+    border-bottom: 1px solid #CCCCCC;  
+    display: flex;
+    align-items: center; 
+}
+
+header a{
+    background-image: url("../images/logo.png"); 
     background-repeat: no-repeat;
-    background-position: 20px 50%;
+    background-position: center;
+    display: block;
+    width: 142px;
+    height: 60px;
+    margin-left: 20px;
 }

@@ -1,5 +1,10 @@
-footer {
-	position: fixed;
-	bottom: 0;
-	background-color: #00FF00;
+footer{
+	background-color: #fff;
+	height: 60px;
+	width: 100%;
+	position: relative;
+	bottom: none;
+	display: grid;
+	place-content: center;
+	border-top: 1px solid #ccc;
 }
