@@ -54,8 +54,7 @@ class BaseModel:
         if isinstance(obj_dict["created_at"], datetime.datetime):
             obj_dict["created_at"] = obj_dict["created_at"].isoformat()
         if isinstance(obj_dict["updated_at"], datetime.datetime):
-            obj_dict["updated_at"] = obj_dict["updated_at"].isoformat()
-        #obj_dict.pop("_sa_instance_state", None)    
+            obj_dict["updated_at"] = obj_dict["updated_at"].isoformat()  
         obj_dict["__class__"] = type(self).__name__
         '''obj_dict["created_at"] = obj_dict["created_at"].isoformat()
         obj_dict["updated_at"] = obj_dict["updated_at"].isoformat()'''
