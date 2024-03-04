@@ -74,7 +74,7 @@ class FileStorage:
                             if vl.get("__class__") in self.classes()}
                 FileStorage.__objects = new_dict
         except Exception as e:
-                pass
+            pass
 
     def attributes(self):
         """Returns the attrs. and their types for classname."""
