@@ -3,7 +3,7 @@
 Contains the class TestConsoleDocs
 """
 
-import console
+import console as console
 from contextlib import redirect_stdout
 import inspect
 import io
