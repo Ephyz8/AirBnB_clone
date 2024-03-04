@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """A test module for the Review class."""
 
-from tests.test_models.test_base_model import test_basemodel
+from test_base_model import test_basemodel
 from models.review import Review
 
 
