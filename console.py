@@ -42,8 +42,7 @@ class HBNBCommand(cmd.Cmd):
             match_attr_and_val = re.search(
                 '^(?:"([^"]*)")?(?:, (.*))?$', attr_or_dict)
             if match_attr_and_val:
-                attr_and_val = (match_attr_and_val.group(1) or "") 
-                + " " + (match_attr_and_val.group(2) or "")
+                attr_and_val = (match_attr_and_val.group(1) or "") + " " + (match_attr_and_val.group(2) or "")
         comm = method + " " + classname + " " + uid + " " + attr_and_val
         self.onecmd(comm)
         return comm
@@ -79,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         """Prints the string representation of an instance
         based on the class name and id.
-        """ 
+        """
         if arg == "" or arg is None:
             print("** class name missing **")
         else:
