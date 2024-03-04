@@ -4,13 +4,6 @@
 import datetime
 import json
 import os
-'''from models.base_model import BaseModel
-from models.state import State
-from models.amenity import Amenity
-from models.city import City
-from models.review import Review
-from models.place import Place
-from models.user import User'''
 
 
 class FileStorage:
@@ -26,14 +19,13 @@ class FileStorage:
 
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id"""
-        key = "{}.{}".format(type(obj.__class__.__name__), obj.id)
+        key = "{}.{}".format(type(obj).__name__, obj.id)
         FileStorage.__objects[key] = obj
 
     def save(self):
         """Serializes __objects to the JSON file"""
         with open(FileStorage.__file_path, "w", encoding="utf-8") as files:
-            docm = {ky: vl.to_dict()
-                    for ky, vl in FileStorage.__objects.items()}
+            docm = {ky: vl.to_dict() for ky, vl in FileStorage.__objects.items()}
             json.dump(docm, files, default=self.custom_json_serializer)
 
     def custom_json_serializer(self, obj):
