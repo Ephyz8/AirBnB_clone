@@ -61,9 +61,7 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, "r", encoding="utf-8") as files:
                 new_dict = json.load(files)
-                new_dict = {ky: self.classes()[vl["__class__"]](**vl)
-                            for ky, vl in new_dict.items()
-                            if vl.get("__class__") in self.classes()}
+                new_dict = {ky: self.classes()[vl["__class__"]](**vl) for ky, vl in new_dict.items() if vl.get("__class__") in self.classes()}
                 FileStorage.__objects = new_dict
         except Exception as e:
             pass
