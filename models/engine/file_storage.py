@@ -35,7 +35,7 @@ class FileStorage:
             docm = {ky: vl.to_dict()
                     for ky, vl in FileStorage.__objects.items()}
             json.dump(docm, files, default=self.custom_json_serializer)
-            
+
     def custom_json_serializer(self, obj):
         """Custom JSON serializer for handling non-serializable objects."""
         if isinstance(obj, (datetime.datetime)):
@@ -62,7 +62,6 @@ class FileStorage:
             "Review": Review,
             }
 
-
     def reload(self):
         """Module to reload the stored objects."""
         if not os.path.isfile(FileStorage.__file_path):
@@ -70,7 +69,7 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, "r", encoding="utf-8") as files:
                 new_dict = json.load(files)
-                new_dict = {ky: self.classes()[vl["__class__"]](**vl) 
+                new_dict = {ky: self.classes()[vl["__class__"]](**vl)
                             for ky, vl in new_dict.items() 
                             if vl.get("__class__") in self.classes()}
                 FileStorage.__objects = new_dict
